@@ -1,18 +1,15 @@
 //IMPORTANDO AS FUNCIONALIDADES DO EXPRESS. ESTE FRAMEWORK E UTILIZADO PARA TRABALHAR COM ROTAS DA APLICACAO
 const express = require('express');
 
+const routes = require("./routes.js");
+
 //IMPORTA PARA A APLICACAO AS CONFIGURACOES DA APLICACAO
 const app = express();
 
-//ROTA GET 
-app.get('/', (requisicao, resposta) => {
+//PERMITE O RETORNO NO FORMATO JSON
+app.use(express.json());
 
-    return resposta.json({
-        evento:"Semana OminiStack 11.0",
-        nome:"Gabriel Gameleira dos Santos"
-    });
-
-})
+app.use(routes);
 
 //LIBERAR A PORTA DA APLICACAO 
 app.listen(3333);
